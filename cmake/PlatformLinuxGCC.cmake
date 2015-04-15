@@ -68,17 +68,6 @@ if (CMAKE_COMPILER_IS_GNUCXX)
     endif ()
 endif ()
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    # clang
-    set(LINUX_COMPILE_FLAGS ${LINUX_COMPILE_FLAGS}
-      -Wno-mismatched-tags 
-      -Wno-unsequenced 
-      -Wno-sign-conversion 
-      -Wno-unused-function 
-      -Wno-missing-braces 
-      -Wno-error=shorten-64-to-32)
-endif()
-
 
 set(DEFAULT_COMPILE_FLAGS
     ${LINUX_COMPILE_FLAGS}
