@@ -17,6 +17,18 @@
 # GLOPERATE_QT_BINARIES
 # GLOPERATE_QT_BINARY_[RELEASE|DEBUG]
 
+# GLOPERATE_QTWIDGETS_LIBRARIES
+# GLOPERATE_QTWIDGETS_LIBRARY_[RELEASE|DEBUG]
+# GLOPERATE_QTWIDGETS_INCLUDE_DIR
+# GLOPERATE_QTWIDGETS_BINARIES
+# GLOPERATE_QTWIDGETS_BINARY_[RELEASE|DEBUG]
+
+# GLOPERATE_QTAPPLICATION_LIBRARIES
+# GLOPERATE_QTAPPLICATION_LIBRARY_[RELEASE|DEBUG]
+# GLOPERATE_QTAPPLICATION_INCLUDE_DIR
+# GLOPERATE_QTAPPLICATION_BINARIES
+# GLOPERATE_QTAPPLICATION_BINARY_[RELEASE|DEBUG]
+
 # GLOPERATE_GLFW_LIBRARIES
 # GLOPERATE_GLFW_LIBRARY_[RELEASE|DEBUG]
 # GLOPERATE_GLFW_INCLUDE_DIR
@@ -29,11 +41,11 @@
 # GLOPERATE_OSG_BINARIES
 # GLOPERATE_OSG_BINARY_[RELEASE|DEBUG]
 
-# GLOPERATE_QTWIDGETS_LIBRARIES
-# GLOPERATE_QTWIDGETS_LIBRARY_[RELEASE|DEBUG]
-# GLOPERATE_QTWIDGETS_INCLUDE_DIR
-# GLOPERATE_QTWIDGETS_BINARIES
-# GLOPERATE_QTWIDGETS_BINARY_[RELEASE|DEBUG]
+# GLOPERATE_ASSIMP_LIBRARIES
+# GLOPERATE_ASSIMP_LIBRARY_[RELEASE|DEBUG]
+# GLOPERATE_ASSIMP_INCLUDE_DIR
+# GLOPERATE_ASSIMP_BINARIES
+# GLOPERATE_ASSIMP_BINARY_[RELEASE|DEBUG]
 
 
 include(FindPackageHandleStandardArgs)
@@ -49,7 +61,7 @@ set(GLOPERATE_INCLUDES "")
 set(GLOPERATE_LIBRARIES "")
 set(GLOPERATE_BINARIES "")
 
-set(LIB_PATHS   
+set(LIB_PATHS
     ${GLOPERATE_DIR}/build
     ${GLOPERATE_DIR}/build/Release
     ${GLOPERATE_DIR}/build/Debug
@@ -73,7 +85,7 @@ macro (find LIB_NAME HEADER)
 
     string(TOUPPER ${LIB_NAME} LIB_NAME_UPPER)
     string(REPLACE "-" "_" LIB_NAME_UPPER ${LIB_NAME_UPPER})
-    
+
     find_path(${LIB_NAME_UPPER}_INCLUDE_DIR ${HEADER}
         ${ENVGLOPERATE_DIR}/include
         ${ENVGLOPERATE_DIR}/source/${LIB_NAME}/include
@@ -94,7 +106,7 @@ macro (find LIB_NAME HEADER)
         NAMES ${LIB_NAME}d
         PATHS ${HINT_PATHS}
         DOC "The ${LIB_NAME} debug library")
-    
+
     if(${LIB_NAME_UPPER}_LIBRARY_RELEASE AND ${LIB_NAME_UPPER}_LIBRARY_DEBUG)
         set(${LIB_NAME_UPPER}_LIBRARIES "optimized" ${${LIB_NAME_UPPER}_LIBRARY_RELEASE} "debug" ${${LIB_NAME_UPPER}_LIBRARY_DEBUG})
     elseif(${LIB_NAME_UPPER}_LIBRARY_RELEASE)
@@ -150,9 +162,11 @@ endmacro()
 
 find(gloperate gloperate/gloperate_api.h ${LIB_PATHS})
 find(gloperate-qt gloperate-qt/gloperate-qt_api.h ${LIB_PATHS})
+find(gloperate-qtwidgets gloperate-qtwidgets/gloperate-qtwidgets_api.h ${LIB_PATHS})
+find(gloperate-qtapplication gloperate-qtapplication/gloperate-qtapplication_api.h ${LIB_PATHS})
 find(gloperate-glfw gloperate-glfw/gloperate-glfw_api.h ${LIB_PATHS})
 find(gloperate-osg gloperate-osg/gloperate-osg_api.h ${LIB_PATHS})
-find(gloperate-qtwidgets gloperate-qtwidgets/gloperate-qtwidgets_api.h ${LIB_PATHS})
+find(gloperate-assimp gloperate-assimp/gloperate-assimp_api.h ${LIB_PATHS})
 
 # DEBUG
 # message("GLOPERATE_INCLUDES  = ${GLOPERATE_INCLUDES}")
