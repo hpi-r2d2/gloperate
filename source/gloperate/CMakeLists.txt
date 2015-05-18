@@ -103,7 +103,8 @@ set(sources
     ${source_path}/painter/PipelineOutputCapability.cpp
     ${source_path}/painter/AbstractOrthographicProjectionCapability.cpp
     ${source_path}/painter/OrthographicProjectionCapability.cpp
-    
+    ${source_path}/painter/R2D2VirtualTimeCapability.cpp
+
     ${source_path}/pipeline/AbstractInputSlot.cpp
     ${source_path}/pipeline/InputSlot.cpp
     ${source_path}/pipeline/PipelinePainter.cpp
@@ -194,6 +195,7 @@ set(api_includes
     ${include_path}/painter/PipelineOutputCapability.h
     ${include_path}/painter/AbstractOrthographicProjectionCapability.h
     ${include_path}/painter/OrthographicProjectionCapability.h
+    ${include_path}/painter/R2D2VirtualTimeCapability.h
     
     ${include_path}/pipeline/AbstractData.h
     ${include_path}/pipeline/AbstractPipeline.hpp
