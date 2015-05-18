@@ -4,6 +4,7 @@
 
 #include <gloperate-osg/OsgPainter.h>
 
+#include <gloperate/base/make_unique.hpp>
 #include <gloperate/painter/ViewportCapability.h>
 #include <gloperate/painter/TargetFramebufferCapability.h>
 #include <gloperate/painter/InputCapability.h>
@@ -31,16 +32,12 @@ OsgPainter::OsgPainter(ResourceManager & resourceManager, const std::string & na
 , m_viewportY(0)
 , m_viewportWidth(0)
 , m_viewportHeight(0)
-, m_viewportCapability(new gloperate::ViewportCapability)
-, m_targetFramebufferCapability(new gloperate::TargetFramebufferCapability)
-, m_inputCapability(new gloperate::InputCapability)
-, m_virtualTimeCapability(new gloperate::VirtualTimeCapability)
 {
     // Register capabilities
-    addCapability(m_viewportCapability);
-    addCapability(m_targetFramebufferCapability);
-    addCapability(m_inputCapability);
-    addCapability(m_virtualTimeCapability);
+    m_viewportCapability = addCapability(new gloperate::ViewportCapability);
+    m_targetFramebufferCapability = addCapability(new gloperate::TargetFramebufferCapability);
+    m_inputCapability = addCapability(new gloperate::InputCapability);
+    m_virtualTimeCapability = addCapability(new gloperate::VirtualTimeCapability);
 }
 
 /**
