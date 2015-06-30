@@ -23,7 +23,7 @@ namespace gloperate_qtwidgets
 ImageExporterOutputWidget::ImageExporterOutputWidget(gloperate::ResourceManager & resourceManager, gloperate::Painter * painter, QWidget * parent)
 :	QWidget(parent)
 ,	m_ui(new Ui_ImageExporterOutputWidget)
-,	m_resolution(new QSize(1,1))
+,	m_resolution(new QSize(1920, 1080))
 {
     m_ui->setupUi(this);
 
