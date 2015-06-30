@@ -260,7 +260,7 @@ void Viewer::on_imageExporterAction_triggered()
 {
 	if (m_currentPainter)
 	{
-		gloperate_qtwidgets::ImageExporterWidget * ie{ new gloperate_qtwidgets::ImageExporterWidget(*m_resourceManager, m_canvas->painter(), m_canvas.get()) };
+        gloperate_qtwidgets::ImageExporterWidget * ie{ new gloperate_qtwidgets::ImageExporterWidget(*m_resourceManager, m_canvas->painter()) };
 
     ie->setWindowModality(Qt::NonModal);
 	ie->show();

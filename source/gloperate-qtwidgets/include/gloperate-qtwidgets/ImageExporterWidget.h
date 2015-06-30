@@ -25,33 +25,25 @@ class QtOpenGLWindow;
 
 }
 
-namespace widgetzeug
-{
-
-class DataLinkWidget;
-
-}
-
 namespace gloperate_qtwidgets
 {
 
 class ImageExporterOutputWidget;
 class ImageExporterResolutionWidget;
-class ImageExporterTilebasedWidget;
 
 class GLOPERATE_QTWIDGETS_API ImageExporterWidget : public widgetzeug::DockableScrollAreaWidget
 {
     Q_OBJECT
 
 public:
-    ImageExporterWidget(gloperate::ResourceManager & resourceManager, gloperate::Painter * painter, gloperate_qt::QtOpenGLWindow * context, QWidget * parent = nullptr);
+    ImageExporterWidget(gloperate::ResourceManager & resourceManager, gloperate::Painter * painter, QWidget * parent = nullptr);
     virtual ~ImageExporterWidget();
+
+    void initialize(gloperate_qt::QtOpenGLWindow * context);
 
 private:
     std::unique_ptr<ImageExporterOutputWidget> m_outputWidget;
     std::unique_ptr<ImageExporterResolutionWidget> m_resolutionWidget;
-    std::unique_ptr<ImageExporterTilebasedWidget> m_tilebasedWidget;
-    std::unique_ptr<widgetzeug::DataLinkWidget> m_dataLinkWidget;
 };
 
 } //namespace gloperate_qtwidgets

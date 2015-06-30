@@ -18,7 +18,7 @@ const QString pixelString = "pixel";
 const QString inchString = "inch";
 const QString cmString = "cm";
 
-ImageExporterResolutionWidget::ImageExporterResolutionWidget(QWidget *parent)
+ImageExporterResolutionWidget::ImageExporterResolutionWidget(QWidget * parent)
 :	QWidget(parent)
 ,	m_widthState(new ResolutionState(1920.0, pixelString))
 ,	m_heightState(new ResolutionState(1080.0, pixelString))
